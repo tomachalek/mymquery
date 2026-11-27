@@ -94,7 +94,11 @@ func main() {
 	if loginURL == "" {
 		loginURL = defaultLoginURL
 	}
-	apiToken := envLookup(dotenv, "API_TOKEN")
+	auth := apiAuth{
+		method:     envLookup(dotenv, "API_AUTH"),
+		token:      envLookup(dotenv, "API_TOKEN"),
+		headerName: envLookup(dotenv, "API_TOKEN_HEADER"),
+	}
 	cqlizerSpec := envLookup(dotenv, "CQLIZER_MCP")
 	llmCnf := llmConf{
 		backend:    envLookup(dotenv, "LLM_BACKEND"),
@@ -105,7 +109,7 @@ func main() {
 		openaiKey:  envLookup(dotenv, "OPENAI_API_KEY"),
 	}
 	headers := make(headerFlags)
-	flag.String("env-file", envPath, "an env file with configuration (API_URL, API_TOKEN, LOGIN_URL, "+
+	flag.String("env-file", envPath, "an env file with configuration (API_URL, API_TOKEN, API_AUTH, LOGIN_URL, API_TOKEN_HEADER, "+
 		"LLM_BACKEND, LLM_MODEL, GEMINI_API_KEY, MISTRAL_API_KEY, OPENAI_API_URL, OPENAI_API_KEY, CQLIZER_MCP); by default, "+
 		"$XDG_CONFIG_DIRS/mymquery/env (e.g. /etc/xdg/mymquery/env) and then "+
 		"$XDG_CONFIG_HOME/mymquery/env (e.g. ~/.config/mymquery/env) are read, plus ./.env if "+
@@ -114,7 +118,15 @@ func main() {
 		"With this option, it is read instead of ./.env")
 	flag.Bool("no-env-file", skipEnvFile, "do not read any env files (real environment variables still apply)")
 	flag.StringVar(&apiURL, "api", apiURL, "MQuery API URL (env: MQUERY_API_URL or API_URL)")
-	flag.StringVar(&loginURL, "login-url", loginURL, "login URL used when API_TOKEN is set (env: LOGIN_URL)")
+	flag.StringVar(&auth.method, "auth", auth.method, fmt.Sprintf(
+		"authentication method used when API_TOKEN is set: %s (CNC toolbar login at -login-url, "+
+			"the token is exchanged for a session cookie) or %s (the token is sent directly to MQuery "+
+			"in the -token-header header); empty = %s (env: API_AUTH)", authCNC, authHeader, authCNC))
+	flag.StringVar(&loginURL, "login-url", loginURL, fmt.Sprintf(
+		"login URL of the %s auth method (env: LOGIN_URL)", authCNC))
+	flag.StringVar(&auth.headerName, "token-header", auth.headerName, fmt.Sprintf(
+		"HTTP header carrying API_TOKEN in the %s auth method; it must match MQuery's "+
+			"auth.TokenHeaderName (env: API_TOKEN_HEADER)", authHeader))
 	flag.Var(headers, "H", "additional HTTP header 'Name: value' (can be repeated)")
 	flag.StringVar(&llmCnf.backend, "llm-backend", llmCnf.backend, fmt.Sprintf(
 		"AI chat backend: %s (needs GEMINI_API_KEY), %s (needs MISTRAL_API_KEY) or %s "+
@@ -154,14 +166,20 @@ func main() {
 		fmt.Fprintln(os.Stderr, "context-width must be between 0 and 50")
 		os.Exit(2)
 	}
+	auth.loginURL = loginURL
+	if err := auth.validate(); err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(2)
+	}
+	auth.applyHeaders(headers)
 	client, err := api.NewClient(apiURL, headers, *timeout)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(2)
 	}
-	if apiToken != "" {
+	{
 		ctx, cancel := context.WithTimeout(context.Background(), *timeout)
-		err := client.Login(ctx, loginURL, apiToken)
+		err := auth.login(ctx, client)
 		cancel()
 		if err != nil {
 			fmt.Fprintln(os.Stderr, err)

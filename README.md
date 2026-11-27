@@ -35,7 +35,9 @@ Files containing secrets should be readable only by you (`chmod 600`).
 | Variable | Meaning |
 |---|---|
 | `MQUERY_API_URL` (`API_URL`) | MQuery API URL (default `http://localhost:8989`) |
-| `API_TOKEN`, `LOGIN_URL` | log in to a protected MQuery instance |
+| `API_TOKEN` | token for a protected MQuery instance (see `API_AUTH`) |
+| `API_AUTH` | how `API_TOKEN` is used: `cnc` (default) = CNC toolbar login at `LOGIN_URL` (default `https://korpus.cz/login`), `header` = sent directly to MQuery in the `API_TOKEN_HEADER` header |
+| `API_TOKEN_HEADER` | header name for `API_AUTH=header`; must match MQuery's `auth.TokenHeaderName` |
 | `LLM_BACKEND` | `gemini`, `mistral` or `openai` (empty = the first one configured) |
 | `LLM_MODEL` | comma separated models; the first is primary, the others are fallbacks |
 | `GEMINI_API_KEY`, `MISTRAL_API_KEY` | API keys of the hosted backends |
