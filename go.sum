@@ -62,6 +62,8 @@ github.com/cncf/udpa/go v0.0.0-20191209042840-269d4d468f6f/go.mod h1:M8M6+tZqaGX
 github.com/coreos/go-systemd/v22 v22.5.0/go.mod h1:Y58oyj3AT4RCenI/lSvhwexgC+NSVTIJ3seZv2GcEnc=
 github.com/czcorpus/cnc-gokit v0.25.0 h1:xPKKfVnv88qgCasnlOl07Qq6lCv1IrcuFc9SzKJRUmA=
 github.com/czcorpus/cnc-gokit v0.25.0/go.mod h1:KUSUUUxiZiLhDWJPIaXLMG7yS1Jyf5BFKtErSZR6xD8=
+github.com/czcorpus/mquery v0.30.0 h1:hJVtfYIACnUEV8j9JcEEewyHnSGmawEfI5vQPYHTqo4=
+github.com/czcorpus/mquery v0.30.0/go.mod h1:3z7yPdlW7adBjDulh53hzcEiuPLE5DkzrnNkKvBVBjQ=
 github.com/czcorpus/mquery-common v0.10.6 h1:ror+4qZcNVg4cQOGIBBwlKGDkOWbIMsP56GKjC+95iA=
 github.com/czcorpus/mquery-common v0.10.6/go.mod h1:MDAk8ukB1WJ4zwKnFiE9mJMZDKciwf66V/QEX6h2x4w=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=

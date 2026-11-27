@@ -2,9 +2,9 @@
 
 A Bubble Tea based TUI client for the MQuery HTTP API. It is a pure HTTP
 client: it uses only the public GET endpoints and no CGO. It lived in the MQuery
-repository (`cmd/mymquery`) until 2026-11; the MCP tools used by the AI chat are
-a copy of MQuery's `mcp` package (`mqmcp/`, see its package doc). Response types are taken from `mquery-common`
-where possible.
+repository (`cmd/mymquery`) until 2026-11. The MCP tools used by the AI chat come
+from MQuery's CGO-free `mcp` package (`github.com/czcorpus/mquery/mcp`, a regular
+module dependency). Response types are taken from `mquery-common` where possible.
 
 ```
 go build -o mymquery .   # or: make
@@ -40,7 +40,6 @@ go build -o mymquery .   # or: make
     mistral.go     Mistral backend (plain HTTP + SSE, ported from NLQL)
     models.go      primary + fallback models (shared by the backends)
   agent/           AI chat: in-process MQuery MCP server, agent loop, result store
-  mqmcp/           MQuery API operations as MCP tools (a copy of MQuery's mcp package)
   storage/         local SQLite DB: query history, saved chats
 ```
 
@@ -171,7 +170,7 @@ change it.
 
 ### M5 – AI chat ✅ (first iteration)
 A chat with an LLM which queries MQuery via an in-process MQuery MCP server
-(`mqmcp`, a copy of MQuery's `mcp`; sharing the HTTP client – incl. the session cookie – with the UI).
+(MQuery's `mcp` package; sharing the HTTP client – incl. the session cookie – with the UI).
 - [x] `llm` package: `Backend` interface (non-streaming), Gemini backend (`google.golang.org/genai`)
       with fallback models and retries on 429/5xx. Config: `GEMINI_API_KEY`, `LLM_MODEL` /
       `-llm-model` (comma separated, first = primary; default `gemini-3.5-flash-lite,gemini-3.1-flash-lite`)
@@ -323,8 +322,8 @@ A chat with an LLM which queries MQuery via an in-process MQuery MCP server
   offers `lempos` before `lemma` because of the corpus attribute order)
 - text types: sorting by ipm reorders only the top `maxItems` by freq (server-side limit);
   maybe hint this in the UI or fetch more items when sorting by ipm
-- `mqmcp/` is a copy of MQuery's `mcp` package (MQuery's module path `mquery` is not
-  importable); once MQuery is `github.com/czcorpus/mquery`, import it instead
+- MQuery's `mcp` tools are a module dependency (`github.com/czcorpus/mquery`, since v0.30.0);
+  a change of the tools needs an MQuery release and `go get github.com/czcorpus/mquery@<tag>`
 - release builds: pure Go (`CGO_ENABLED=0`), so binaries for Linux/macOS/Windows can be
   cross-compiled (e.g. GoReleaser + GitHub Actions); `-version` flag via ldflags
 
