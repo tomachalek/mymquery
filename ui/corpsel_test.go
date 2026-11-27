@@ -3,7 +3,7 @@ package ui
 import (
 	"testing"
 
-	"mquery/cmd/mymquery/api"
+	"github.com/tomachalek/mymquery/api"
 
 	"github.com/stretchr/testify/assert"
 )

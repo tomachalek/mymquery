@@ -10,10 +10,10 @@ import (
 	"strings"
 	"time"
 
-	"mquery/cmd/mymquery/api"
-	"mquery/cmd/mymquery/llm"
-	"mquery/cmd/mymquery/storage"
-	"mquery/cmd/mymquery/ui"
+	"github.com/tomachalek/mymquery/api"
+	"github.com/tomachalek/mymquery/llm"
+	"github.com/tomachalek/mymquery/storage"
+	"github.com/tomachalek/mymquery/ui"
 
 	tea "github.com/charmbracelet/bubbletea"
 )

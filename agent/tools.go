@@ -5,9 +5,9 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"mquery/cmd/mymquery/api"
-	"mquery/cmd/mymquery/llm"
-	mqmcp "mquery/mcp"
+	"github.com/tomachalek/mymquery/api"
+	"github.com/tomachalek/mymquery/llm"
+	"github.com/tomachalek/mymquery/mqmcp"
 
 	"github.com/mark3labs/mcp-go/client"
 	"github.com/mark3labs/mcp-go/mcp"

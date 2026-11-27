@@ -11,7 +11,7 @@ import (
 	"sync"
 	"time"
 
-	"mquery/cmd/mymquery/llm"
+	"github.com/tomachalek/mymquery/llm"
 
 	"github.com/mark3labs/mcp-go/client"
 	"github.com/mark3labs/mcp-go/mcp"

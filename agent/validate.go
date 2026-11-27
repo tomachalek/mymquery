@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"mquery/cmd/mymquery/llm"
+	"github.com/tomachalek/mymquery/llm"
 )
 
 // ValidateToolName is the CQLizer tool used for automatic validation of

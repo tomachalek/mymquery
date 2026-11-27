@@ -5,7 +5,7 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"mquery/cmd/mymquery/llm"
+	"github.com/tomachalek/mymquery/llm"
 )
 
 const maxTitleChars = 80

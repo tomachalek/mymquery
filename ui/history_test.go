@@ -4,7 +4,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"mquery/cmd/mymquery/storage"
+	"github.com/tomachalek/mymquery/storage"
 
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/stretchr/testify/assert"

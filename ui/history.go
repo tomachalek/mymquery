@@ -3,7 +3,7 @@ package ui
 import (
 	"strings"
 
-	"mquery/cmd/mymquery/storage"
+	"github.com/tomachalek/mymquery/storage"
 )
 
 const DefaultHistorySize = 100

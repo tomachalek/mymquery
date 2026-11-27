@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"mquery/cmd/mymquery/agent"
+	"github.com/tomachalek/mymquery/agent"
 
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/stretchr/testify/assert"

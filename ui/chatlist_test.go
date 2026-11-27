@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"mquery/cmd/mymquery/agent"
-	"mquery/cmd/mymquery/llm"
-	"mquery/cmd/mymquery/storage"
+	"github.com/tomachalek/mymquery/agent"
+	"github.com/tomachalek/mymquery/llm"
+	"github.com/tomachalek/mymquery/storage"
 
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/x/ansi"

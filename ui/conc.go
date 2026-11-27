@@ -7,7 +7,7 @@ import (
 	"sort"
 	"strings"
 
-	"mquery/cmd/mymquery/api"
+	"github.com/tomachalek/mymquery/api"
 
 	"github.com/charmbracelet/bubbles/spinner"
 	tea "github.com/charmbracelet/bubbletea"

@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	"mquery/cmd/mymquery/agent"
-	"mquery/cmd/mymquery/llm"
+	"github.com/tomachalek/mymquery/agent"
+	"github.com/tomachalek/mymquery/llm"
 
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/stretchr/testify/assert"

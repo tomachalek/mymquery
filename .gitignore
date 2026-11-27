@@ -1,0 +1,4 @@
+/mymquery
+/dist/
+.env
+*.db

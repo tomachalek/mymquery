@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"mquery/cmd/mymquery/api"
-	"mquery/cmd/mymquery/storage"
+	"github.com/tomachalek/mymquery/api"
+	"github.com/tomachalek/mymquery/storage"
 
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/stretchr/testify/assert"

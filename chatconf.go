@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"mquery/cmd/mymquery/llm"
+	"github.com/tomachalek/mymquery/llm"
 )
 
 // supported AI chat backends (LLM_BACKEND, -llm-backend)

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"mquery/cmd/mymquery/api"
+	"github.com/tomachalek/mymquery/api"
 
 	"github.com/charmbracelet/bubbles/cursor"
 	"github.com/charmbracelet/bubbles/list"

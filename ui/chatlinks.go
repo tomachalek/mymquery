@@ -3,7 +3,7 @@ package ui
 import (
 	"regexp"
 
-	"mquery/cmd/mymquery/agent"
+	"github.com/tomachalek/mymquery/agent"
 
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"

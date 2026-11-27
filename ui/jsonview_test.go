@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"mquery/cmd/mymquery/agent"
+	"github.com/tomachalek/mymquery/agent"
 
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/x/ansi"

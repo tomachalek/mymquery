@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"mquery/cmd/mymquery/agent"
-	"mquery/cmd/mymquery/llm"
+	"github.com/tomachalek/mymquery/agent"
+	"github.com/tomachalek/mymquery/llm"
 )
 
 // DB implements agent.Recorder

@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"mquery/cmd/mymquery/api"
+	"github.com/tomachalek/mymquery/api"
 
 	"github.com/charmbracelet/x/ansi"
 )

@@ -10,7 +10,7 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"mquery/cmd/mymquery/llm"
+	"github.com/tomachalek/mymquery/llm"
 )
 
 const (

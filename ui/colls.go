@@ -9,8 +9,8 @@ import (
 	"strconv"
 	"strings"
 
-	"mquery/cmd/mymquery/api"
-	"mquery/cmd/mymquery/cql"
+	"github.com/tomachalek/mymquery/api"
+	"github.com/tomachalek/mymquery/cql"
 
 	"github.com/charmbracelet/bubbles/spinner"
 	tea "github.com/charmbracelet/bubbletea"

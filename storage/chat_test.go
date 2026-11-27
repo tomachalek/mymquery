@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"mquery/cmd/mymquery/agent"
-	"mquery/cmd/mymquery/llm"
+	"github.com/tomachalek/mymquery/agent"
+	"github.com/tomachalek/mymquery/llm"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

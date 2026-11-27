@@ -4,7 +4,7 @@ import (
 	"context"
 	"strings"
 
-	"mquery/cmd/mymquery/api"
+	"github.com/tomachalek/mymquery/api"
 
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"

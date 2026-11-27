@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"strings"
 
-	"mquery/cmd/mymquery/agent"
-	"mquery/cmd/mymquery/api"
-	"mquery/cmd/mymquery/llm"
-	"mquery/cmd/mymquery/storage"
-	"mquery/cmd/mymquery/ui"
+	"github.com/tomachalek/mymquery/agent"
+	"github.com/tomachalek/mymquery/api"
+	"github.com/tomachalek/mymquery/llm"
+	"github.com/tomachalek/mymquery/storage"
+	"github.com/tomachalek/mymquery/ui"
 )
 
 // llmKeyNames are names of the API key variables of the backends

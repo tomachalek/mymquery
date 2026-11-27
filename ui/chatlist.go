@@ -5,7 +5,7 @@ import (
 	"slices"
 	"strings"
 
-	"mquery/cmd/mymquery/agent"
+	"github.com/tomachalek/mymquery/agent"
 
 	"github.com/charmbracelet/bubbles/cursor"
 	"github.com/charmbracelet/bubbles/textinput"

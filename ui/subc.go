@@ -7,8 +7,8 @@ import (
 	"strings"
 	"unicode"
 
-	"mquery/cmd/mymquery/api"
-	"mquery/cmd/mymquery/storage"
+	"github.com/tomachalek/mymquery/api"
+	"github.com/tomachalek/mymquery/storage"
 
 	"github.com/charmbracelet/bubbles/cursor"
 	"github.com/charmbracelet/bubbles/textinput"

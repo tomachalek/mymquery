@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"testing"
 
-	"mquery/cmd/mymquery/api"
+	"github.com/tomachalek/mymquery/api"
 
 	tea "github.com/charmbracelet/bubbletea"
 )
